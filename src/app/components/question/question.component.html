@@ -1,0 +1,10 @@
+<div class="question">
+  <div><strong>Question {{question.id}}</strong></div>
+  <div><strong>A.</strong> {{question.textA}}</div>
+  <div><strong>B.</strong> {{question.textB}}</div>
+  <label>Points attribués à A (0..3)</label>
+  <select [(ngModel)]="question.pointsA">
+    <option *ngFor="let n of [0,1,2,3]" [value]="n">{{n}}</option>
+  </select>
+  <span>B = {{3 - question.pointsA}}</span> 
+</div>
