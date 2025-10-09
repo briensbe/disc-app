@@ -6,8 +6,9 @@ import {
   ViewChild,
   AfterViewInit,
   SimpleChanges,
+  SimpleChange,
 } from '@angular/core';
-import { Chart, registerables } from 'chart.js';
+import { Chart, ChartType, registerables } from 'chart.js';
 Chart.register(...registerables);
 
 // définition du composant, notamment sa balise <app-results>
@@ -17,8 +18,15 @@ Chart.register(...registerables);
   templateUrl: './results.component.html',
   styleUrl: './results.component.css',
 })
-
 export class ResultsComponent implements AfterViewInit {
+  chartType: ChartType = 'bar';
+  buttonText: string = this.getButtonText() ;
+  
+    // Getter pour inverser le texte du bouton
+  getButtonText(): string {
+    return this.chartType === 'bar' ? 'Pie' : 'Bar';
+  }
+
   @Input() totals!: {
     Rouge: number;
     Jaune: number;
@@ -31,22 +39,25 @@ export class ResultsComponent implements AfterViewInit {
 
   //ngOnInit() {
   ngAfterViewInit() {
+    console.log(this.buttonText);
     const ctx = this.canvas.nativeElement.getContext('2d');
 
     this.chart = new Chart(ctx!, {
-      type: 'bar',
+      type: this.chartType,
       data: {
         labels: ['Rouge', 'Jaune', 'Vert', 'Bleu'],
         datasets: [
           {
+            label: 'Votre profil',
             data: Object.values(this.totals),
             backgroundColor: ['#e53935', '#fdd835', '#43a047', '#1e88e5'],
           },
         ],
       },
       options: {
-        //responsive: false, // Désactive le responsive si tu veux des dimensions fixes
-        scales: { y: { beginAtZero: true } },
+        responsive: false, // Désactive le responsive si tu veux des dimensions fixes
+        //scales: { y: { beginAtZero: true } },
+        scales: this.chartType === 'bar' ? { y: { beginAtZero: true } } : {},
       },
     });
 
@@ -59,6 +70,21 @@ export class ResultsComponent implements AfterViewInit {
       this.chart.update();
     }
   }
+
+  //change le type de graphique
+  changeType() {
+    // Change le type de graphique
+    this.chartType = this.chartType === 'bar' ? 'pie' : 'bar';
+    
+    // Détruit l'ancien graphique s'il existe
+    if (this.chart) {
+      this.chart.destroy();
+    }
+
+    // Re-crée le graphique avec le nouveau type
+    this.ngAfterViewInit();
+  }
+
 
 
 }

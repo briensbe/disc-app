@@ -20,17 +20,17 @@ export class DiscService {
     const totals = { Rouge: 0, Jaune: 0, Vert: 0, Bleu: 0 };
 
     let relationPoints = this.relationSum();
-    console.log('relationPoints : ', relationPoints);
-    console.log(typeof relationPoints); // Doit afficher "number"
+    // console.log('relationPoints : ', relationPoints);
+    // console.log(typeof relationPoints); // Doit afficher "number"
     let fairePoints = this.faireSum();
-    console.log('fairePoints : ', fairePoints);
-    console.log(typeof fairePoints); // Doit afficher "number"
+    // console.log('fairePoints : ', fairePoints);
+    // console.log(typeof fairePoints); // Doit afficher "number"
     let extravertiPoints = this.extravertiSum();
-    console.log('extravertiPoints : ', extravertiPoints);
-    console.log(typeof extravertiPoints); // Doit afficher "number"
+    // console.log('extravertiPoints : ', extravertiPoints);
+    // console.log(typeof extravertiPoints); // Doit afficher "number"
     let introvertiPoints = this.introvertiSum();
-    console.log('introvertiPoints : ', introvertiPoints);
-    console.log(typeof introvertiPoints); // Doit afficher "number"
+    // console.log('introvertiPoints : ', introvertiPoints);
+    // console.log(typeof introvertiPoints); // Doit afficher "number"
 
     // Rouge = F+E
     // Jaune = R+E
