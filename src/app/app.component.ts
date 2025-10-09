@@ -16,16 +16,18 @@ export class AppComponent {
   questions: Question[] = [
     {
       id: 1,
-      textA: 'Je suis assez ouvert(e) aux gens...',
-      textB: 'Je mets du temps pour établir des relations.',
+      display_num : 11, // à faire aléatoire
+      textA: 'Je suis assez ouvert(e) aux gens et je vais facilement établir de nouvelles relations',
+      textB: 'Je ne suis pas très ouvert(e) aux gens et je mets du temps pour établir de nouvelles relations.',
       optionA: 'Jaune',
       optionB: 'Vert',
       pointsA: 3
     },
     {
       id: 2,
-      textA: 'Je suis assez ouvert(e) aux gens...',
-      textB: 'Je mets du temps pour établir des relations.',
+      display_num : 22, // à faire aléatoire
+      textA: 'Je réagis habituellement lentement et de façon réfléchie.',
+      textB: 'Je réagis rapidement et spontanément.',
       optionA: 'Jaune',
       optionB: 'Vert',
       pointsA: 3

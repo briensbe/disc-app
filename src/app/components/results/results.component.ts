@@ -10,12 +10,14 @@ import {
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
+// définition du composant, notamment sa balise <app-results>
 @Component({
   selector: 'app-results',
   standalone: true,
   templateUrl: './results.component.html',
   styleUrl: './results.component.css',
 })
+
 export class ResultsComponent implements AfterViewInit {
   @Input() totals!: {
     Rouge: number;
@@ -23,6 +25,7 @@ export class ResultsComponent implements AfterViewInit {
     Vert: number;
     Bleu: number;
   };
+
   @ViewChild('chartCanvas') canvas!: ElementRef<HTMLCanvasElement>;
   chart?: Chart;
 
@@ -56,4 +59,6 @@ export class ResultsComponent implements AfterViewInit {
       this.chart.update();
     }
   }
+
+
 }
