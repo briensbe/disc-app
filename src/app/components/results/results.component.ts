@@ -20,12 +20,7 @@ Chart.register(...registerables);
 })
 export class ResultsComponent implements AfterViewInit {
   chartType: ChartType = 'bar';
-  buttonText: string = this.getButtonText() ;
-  
-    // Getter pour inverser le texte du bouton
-  getButtonText(): string {
-    return this.chartType === 'bar' ? 'Pie' : 'Bar';
-  }
+  buttonText: string = 'pie';
 
   @Input() totals!: {
     Rouge: number;
@@ -39,7 +34,7 @@ export class ResultsComponent implements AfterViewInit {
 
   //ngOnInit() {
   ngAfterViewInit() {
-    console.log(this.buttonText);
+    //console.log(this.buttonText);
     const ctx = this.canvas.nativeElement.getContext('2d');
 
     this.chart = new Chart(ctx!, {
@@ -73,9 +68,11 @@ export class ResultsComponent implements AfterViewInit {
 
   //change le type de graphique
   changeType() {
+    //on conserve le précédent format pour le texte du bouton.
+    this.buttonText = this.chartType;
     // Change le type de graphique
     this.chartType = this.chartType === 'bar' ? 'pie' : 'bar';
-    
+
     // Détruit l'ancien graphique s'il existe
     if (this.chart) {
       this.chart.destroy();
