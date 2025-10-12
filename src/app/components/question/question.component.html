@@ -1,10 +1,44 @@
-<div class="question">
-  <div><strong>Question {{question.id}} - N° {{question.display_num}}</strong></div>
-  <div><strong>A.</strong> {{question.textA}}</div>
-  <div><strong>B.</strong> {{question.textB}}</div>
-  <label>Points attribués à A (0..3)</label>
-  <select [(ngModel)]="question.pointsA">
+<!-- <div class="question">
+  <div>
+    <strong>Question {{question.id}} - N° {{question.display_num}}</strong> 
+    
+  </div>
+  <div><strong>A.</strong> {{question.textA}} </div> <div>
+    <label>Points attribués à A (0..3)</label>
+    <select [(ngModel)]="question.pointsA">
     <option *ngFor="let n of [0,1,2,3]" [value]="n">{{n}}</option>
-  </select>
-  <span>B = {{3 - question.pointsA}}</span> 
+  </select></div> 
+  <div><strong>B.</strong> {{question.textB}}</div>
+    <span>B = {{3 - question.pointsA}}</span> 
 </div>
+<app-points-distribution></app-points-distribution>
+<br> -->
+
+<table class="table-bordered">
+  <thead>
+    <tr>
+      <th><strong>Question {{question.id}} - N° {{question.display_num}}</strong> </th>
+      <th>Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>A.</strong> {{ question.textA }}</td>
+      <td>
+        <select [(ngModel)]="question.pointsA" (change)="updatePointsA()">
+          <option *ngFor="let n of [0,1,2,3]" [value]="n">{{ n }}</option>
+        </select>
+      </td>
+</tr>
+<tr>
+      <td><strong>B.</strong> {{ question.textB }}</td>
+      <td>
+        <!-- {{3 - question.pointsA}} -->
+        <select [(ngModel)]="question.pointsB" (change)="updatePointsB()">
+          <option *ngFor="let n of [0,1,2,3]" [value]="n">{{ n }}</option>
+        </select>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>

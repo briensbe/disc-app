@@ -17,6 +17,7 @@ describe('DiscService', () => {
         optionA: 'Rouge',
         optionB: 'Jaune',
         pointsA: 2,
+        pointsB: 1
       },
       {
         id: 3,
@@ -25,6 +26,7 @@ describe('DiscService', () => {
         optionA: 'Vert',
         optionB: 'Bleu',
         pointsA: 1,
+        pointsB: 2
       },
       {
         id: 5,
@@ -33,6 +35,7 @@ describe('DiscService', () => {
         optionA: 'Rouge',
         optionB: 'Jaune',
         pointsA: 3,
+        pointsB: 0
       },
       {
         id: 7,
@@ -41,6 +44,7 @@ describe('DiscService', () => {
         optionA: 'Vert',
         optionB: 'Bleu',
         pointsA: 0,
+        pointsB: 3
       },
       {
         id: 9,
@@ -49,6 +53,7 @@ describe('DiscService', () => {
         optionA: 'Rouge',
         optionB: 'Jaune',
         pointsA: 1,
+        pointsB: 2
       },
       {
         id: 11,
@@ -57,6 +62,7 @@ describe('DiscService', () => {
         optionA: 'Vert',
         optionB: 'Bleu',
         pointsA: 2,
+        pointsB: 1
       },
       {
         id: 13,
@@ -65,6 +71,7 @@ describe('DiscService', () => {
         optionA: 'Rouge',
         optionB: 'Jaune',
         pointsA: 0,
+        pointsB: 3
       },
       {
         id: 15,
@@ -73,6 +80,7 @@ describe('DiscService', () => {
         optionA: 'Vert',
         optionB: 'Bleu',
         pointsA: 3,
+        pointsB: 0
       },
       {
         id: 17,
@@ -81,6 +89,7 @@ describe('DiscService', () => {
         optionA: 'Rouge',
         optionB: 'Jaune',
         pointsA: 2,
+        pointsB: 1
       },
     ];
     service.setQuestions(questions);

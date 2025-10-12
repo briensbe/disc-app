@@ -1,0 +1,46 @@
+/* V1 */
+/* .totals-table {
+  width: 60px;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.totals-table th, .totals-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.totals-table th {
+  background-color: #f2f2f2;
+}
+
+.totals-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+} */
+
+/* V2 */
+
+.chart-and-table {
+  display: flex;                 /* place les éléments sur une même ligne */
+  align-items: flex-start;       /* aligne en haut */
+  gap: 20px;                     /* espace entre le graphique et le tableau */
+  margin-top: 20px;
+}
+
+.totals-table {
+  border-collapse: collapse;
+  /* min-width: 200px; */
+  width: 60px;
+}
+
+.totals-table th,
+.totals-table td {
+  border: 1px solid #333;
+  padding: 8px;
+  text-align: left;
+}
+
+.totals-table thead {
+  background-color: #f2f2f2;
+}

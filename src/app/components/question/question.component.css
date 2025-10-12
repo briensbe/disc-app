@@ -1,0 +1,57 @@
+.table-bordered {
+  width: 50%;
+  border-collapse: collapse; /* supprime les doubles lignes */
+  table-layout: fixed; /* empêche le tableau de s’adapter au contenu */
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #333;  /* couleur de la bordure */
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Largeur de la colonne Points */
+.table-bordered th:last-child,
+.table-bordered td:last-child {
+  width: 80px;                  /* fixe la largeur de la dernière colonne */
+  text-align: center;
+}
+
+/* Optionnel : largeur des colonnes A/B si tu veux harmoniser */
+.table-bordered th:first-child,
+.table-bordered td:first-child {
+  width: calc(100% - 80px);     /* le reste pour le texte */
+}
+
+.table-bordered thead {
+  background-color: #f2f2f2; /* optionnel : fond gris pour l'entête */
+}
+
+select {
+  appearance: none;              /* enlève le style natif */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  border: 1px solid #666;
+  padding: 6px 30px 6px 10px;    /* espace pour la flèche */
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23666' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+}
+
+select:focus {
+  outline: none;
+  border-color: #1976d2;        /* bleu focus */
+  box-shadow: 0 0 4px #1976d2;
+}
+
+/* select:hover {
+  border-color: #444;
+  background-color: #f8f8f8;
+} */

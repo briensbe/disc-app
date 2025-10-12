@@ -1,3 +1,36 @@
 <h3>Résultats DISC</h3>
 <button (click)="changeType()">{{ buttonText }}</button>
-<div style="width: 700px;"><canvas #chartCanvas></canvas></div>
+<div class="chart-and-table">
+  <div style="width: 700px"><canvas #chartCanvas></canvas></div>
+
+  <div>
+    <table class="totals-table">
+      <thead>
+        <tr>
+          <th>Couleur</th>
+          <th>Valeur</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rouge</td>
+          <td>{{ totals["Rouge"] }}</td>
+        </tr>
+        <tr>
+          <td>Jaune</td>
+          <td>{{ totals["Jaune"] }}</td>
+        </tr>
+
+        <tr>
+          <td>Vert</td>
+          <td>{{ totals["Vert"] }}</td>
+        </tr>
+
+        <tr>
+          <td>Bleu</td>
+          <td>{{ totals["Bleu"] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

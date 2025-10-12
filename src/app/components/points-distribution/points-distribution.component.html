@@ -1,0 +1,55 @@
+<!-- v1 -->
+<div class="container">
+  <!-- <h2>Répartition des points (Total: 3)</h2> -->
+
+  <div class="option">
+    <span>Option A:</span>
+    <button (click)="decrementA()">-</button>
+    <span>{{ pointsA }}</span>
+    <button (click)="incrementA()">+</button>
+  </div>
+
+  <div class="option">
+    <span>Option B:</span>
+    <button (click)="decrementB()">-</button>
+    <span>{{ pointsB }}</span>
+    <button (click)="incrementB()">+</button>
+  </div>
+</div>
+
+<!-- V2  -->
+ <div class="container">
+  <h2>Répartition des points (Total: 3)</h2>
+
+  <div class="option">
+    <span>Option A:</span>
+    <button (click)="decrementA()">-</button>
+    <span>{{ pointsA }}</span>
+    <button (click)="incrementA()">+</button>
+    <div class="visual">
+      <div class="bar" [style.width.%]="(pointsA / 3) * 100"></div>
+      <div class="tokens">
+        <span *ngFor="let token of [1, 2, 3]">
+          <span *ngIf="token <= pointsA">●</span>
+          <span *ngIf="token > pointsA">○</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="option">
+    <span>Option B:</span>
+    <button (click)="decrementB()">-</button>
+    <span>{{ pointsB }}</span>
+    <button (click)="incrementB()">+</button>
+    <div class="visual">
+      <div class="bar" [style.width.%]="(pointsB / 3) * 100"></div>
+      <div class="tokens">
+        <span *ngFor="let token of [1, 2, 3]">
+          <span *ngIf="token <= pointsB">●</span>
+          <span *ngIf="token > pointsB">○</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

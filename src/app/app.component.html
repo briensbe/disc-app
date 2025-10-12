@@ -1,5 +1,10 @@
 <h1>Test DISC</h1>
+<h3>Il comporte 18 questions</h3>
+<h3>3 points sont à attribuer pour chaque question</h3>
+
+<button class="primary-btn" (click)="finish()">J’ai fini !</button>
+<br><br>
 <app-question *ngFor="let q of questions" [question]="q"></app-question>
-<button (click)="finish()">J’ai fini !</button>
+<button class="primary-btn" (click)="finish()">J’ai fini !</button>
 
 <app-results *ngIf="showResults" [totals]="totals"></app-results>
