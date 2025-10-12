@@ -2,9 +2,19 @@
 <h3>Il comporte 18 questions</h3>
 <h3>3 points sont à attribuer pour chaque question</h3>
 
+<h3>Mode Etapier </h3>
+<app-questionnaire [questionnaireQuestions]="questions"></app-questionnaire>
 <button class="primary-btn" (click)="finish()">J’ai fini !</button>
+<details>
+    <summary>Cliquer ici pour afficher toutes les questions</summary>
+
+<h3>Mode toutes les questions d'un coup</h3>
+
+
 <br><br>
 <app-question *ngFor="let q of questions" [question]="q"></app-question>
 <button class="primary-btn" (click)="finish()">J’ai fini !</button>
+
+</details>
 
 <app-results *ngIf="showResults" [totals]="totals"></app-results>

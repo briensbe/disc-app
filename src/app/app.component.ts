@@ -5,11 +5,12 @@ import { QuestionComponent } from './components/question/question.component';
 import { ResultsComponent } from './components/results/results.component';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { QuestionnaireComponent } from "./components/questionnaire/questionnaire.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgFor, NgIf, FormsModule, QuestionComponent, ResultsComponent],
+  imports: [NgFor, NgIf, FormsModule, QuestionComponent, ResultsComponent, QuestionnaireComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
