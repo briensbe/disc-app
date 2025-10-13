@@ -1,11 +1,20 @@
 <div class="question-container">
-  <app-question [question]="questionnaireQuestions[currentQuestionIndex]"></app-question>
+  <app-question
+    [question]="questionnaireQuestions[currentQuestionIndex]"
+  ></app-question>
 
   <h4>
     Question {{ currentQuestionIndex + 1 }} /
     {{ questionnaireQuestions.length }}
   </h4>
-
+  <div class="progress-container">
+    <div
+      class="bar"
+      [style.width.%]="
+        ((currentQuestionIndex + 1) / questionnaireQuestions.length) * 100
+      "
+    ></div>
+  </div>
   <div class="button-container">
     <button
       (click)="previousQuestion()"
