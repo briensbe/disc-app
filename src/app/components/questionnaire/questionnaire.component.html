@@ -11,7 +11,7 @@
     <div
       class="bar"
       [style.width.%]="
-        ((currentQuestionIndex + 1) / questionnaireQuestions.length) * 100
+        ((currentQuestionIndex) / (questionnaireQuestions.length-1)) * 100
       "
     ></div>
   </div>

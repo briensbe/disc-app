@@ -20,6 +20,8 @@ Chart.register(...registerables);
 })
 export class ResultsComponent implements AfterViewInit {
   chartType: ChartType = 'bar';
+  chartWidth: number = 700;
+  chartHeight: number = 350;
   buttonText: string = 'pie';
 
   @Input() totals!: {
@@ -32,10 +34,19 @@ export class ResultsComponent implements AfterViewInit {
   @ViewChild('chartCanvas') canvas!: ElementRef<HTMLCanvasElement>;
   chart?: Chart;
 
+  ngOnInit() {}
+
   //ngOnInit() {
   ngAfterViewInit() {
     //console.log(this.buttonText);
     const ctx = this.canvas.nativeElement.getContext('2d');
+
+    this.chartWidth = this.chartType === 'bar' ? 350 : 350;
+    this.chartHeight = this.chartType === 'bar' ? 300 : 350;
+
+    // Applique les dimensions directement au canvas
+    this.canvas.nativeElement.width = this.chartWidth;
+    this.canvas.nativeElement.height = this.chartHeight;
 
     this.chart = new Chart(ctx!, {
       type: this.chartType,
@@ -51,7 +62,7 @@ export class ResultsComponent implements AfterViewInit {
       },
       options: {
         responsive: false, // Désactive le responsive si tu veux des dimensions fixes
-        //scales: { y: { beginAtZero: true } },
+        // scales: { y: { beginAtZero: true } },
         scales: this.chartType === 'bar' ? { y: { beginAtZero: true } } : {},
       },
     });
@@ -81,7 +92,4 @@ export class ResultsComponent implements AfterViewInit {
     // Re-crée le graphique avec le nouveau type
     this.ngAfterViewInit();
   }
-
-
-
 }
