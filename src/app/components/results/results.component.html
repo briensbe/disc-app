@@ -1,10 +1,9 @@
 <h3>Résultats DISC</h3>
 <button (click)="changeType()">{{ buttonText }}</button>
 <div class="chart-and-table">
-  <!-- <div style="height: 350px">  -->
-    <div>
+  <div>
     <canvas #chartCanvas [width]="chartWidth" [height]="chartHeight"></canvas>
- </div>
+  </div>
 
   <div>
     <table class="totals-table">

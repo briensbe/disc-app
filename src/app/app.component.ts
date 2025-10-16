@@ -5,12 +5,19 @@ import { QuestionComponent } from './components/question/question.component';
 import { ResultsComponent } from './components/results/results.component';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { QuestionnaireComponent } from "./components/questionnaire/questionnaire.component";
+import { QuestionnaireComponent } from './components/questionnaire/questionnaire.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgFor, NgIf, FormsModule, QuestionComponent, ResultsComponent, QuestionnaireComponent],
+  imports: [
+    NgFor,
+    NgIf,
+    FormsModule,
+    QuestionComponent,
+    ResultsComponent,
+    QuestionnaireComponent,
+  ],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
@@ -190,9 +197,34 @@ export class AppComponent {
 
   constructor(private disc: DiscService) {}
 
+  errorMessage: string | null = null;
+
   finish() {
     this.disc.setQuestions(this.questions);
     this.totals = this.disc.computeResults();
+
     this.showResults = true;
+    this.checkQuestionsAreFilled();
+    //désactivation de l'affichage des résultats si on eu une erreur... 
+    if (this.errorMessage !== null) {
+      this.showResults = false;
+    }
+  }
+
+  private checkQuestionsAreFilled() {
+    this.errorMessage = null;
+    for (const question of this.questions) {
+      if (Number(question.pointsA) + Number(question.pointsB) != 3) {
+        // console.log(question.id + " points A : " + question.pointsA + " points B : " + question.pointsB + " type : " + typeof question.pointsA);
+        if (!this.errorMessage) {
+          this.errorMessage =
+            'Veuillez répondre à toutes les questions avant de continuer. Il manque : ' +
+            question.id;
+        } else {
+          this.errorMessage += ', ' + question.id;
+        }
+      }
+    }
+
   }
 }

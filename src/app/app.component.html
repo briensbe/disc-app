@@ -1,20 +1,23 @@
 <h1>Test DISC</h1>
-<h3>Il comporte 18 questions. 3 points sont à attribuer pour chaque question</h3>
+<h3>
+  Il comporte 18 questions. 3 points sont à attribuer pour chaque question
+</h3>
 
 <app-questionnaire [questionnaireQuestions]="questions"></app-questionnaire>
 <button class="primary-btn" (click)="finish()">J’ai fini !</button>
-
+<!-- Message d'erreur (s'affiche si une question n'est pas répondue) -->
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
 <app-results *ngIf="showResults" [totals]="totals"></app-results>
 
-<br><br>
+<br /><br />
 <details>
-    <summary>Cliquer ici pour afficher toutes les questions</summary>
+  <summary>Cliquer ici pour afficher toutes les questions</summary>
 
-<h3>Mode toutes les questions d'un coup</h3>
+  <h3>Mode toutes les questions d'un coup</h3>
 
-
-<br><br>
-<app-question *ngFor="let q of questions" [question]="q"></app-question>
-<button class="primary-btn" (click)="finish()">J’ai fini !</button>
-
+  <br /><br />
+  <app-question *ngFor="let q of questions" [question]="q"></app-question>
+  <button class="primary-btn" (click)="finish()">J’ai fini !</button>
 </details>

@@ -21,3 +21,9 @@ button:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.4); /* halo focus */
 }
+
+.error-message {
+  color: red;
+  margin: 10px 0;
+  font-weight: bold;
+}
